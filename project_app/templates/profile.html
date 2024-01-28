@@ -1,0 +1,9 @@
+<!-- project_app/templates/profile.html -->
+{% include 'header.html' %}
+
+<h1>Your Profile Information</h1>
+<p>Email: {{ user.email }}</p>
+<p>Phone Number: {{ user.profile.phone_number }}</p>
+<p>Username: {{ user.username }}</p>
+
+<a href="{% url 'project_list' %}" class="btn btn-primary">View Projects</a>

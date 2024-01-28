@@ -1,0 +1,10 @@
+<!-- project_app/templates/registration/login.html -->
+<!-- {% include 'header.html' %} -->
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Login</button>
+</form>
+
+<p>New user? <a href="{% url 'signup' %}">Register here</a></p>

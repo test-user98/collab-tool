@@ -1,0 +1,8 @@
+<!-- project_app/templates/tasks/update_task.html -->
+<h2>Update Task</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" name="update_task" value="Update">
+  <a href="{% url 'task_list' project_id=project.id %}">Cancel</a>
+</form>

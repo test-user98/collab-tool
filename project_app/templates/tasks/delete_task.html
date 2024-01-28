@@ -1,0 +1,11 @@
+<!-- project_app/templates/delete_task.html -->
+<h1>Delete Task</h1>
+
+<p>Are you sure you want to delete the task "{{ task.name }}"?</p>
+
+<form method="post">
+  {% csrf_token %}
+  <button type="submit">Delete Task</button>
+</form>
+
+<a href="{% url 'task_list' project_id=project.id %}">Cancel</a>

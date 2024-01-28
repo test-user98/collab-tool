@@ -1,0 +1,46 @@
+<nav>
+    <ul style="display: flex; align-items: center; float: right;">
+        {% if user.is_authenticated %}
+        <li style="margin-right: 40px;"><a href="{% url 'profile' %}">Profile</a></li>
+        <li style="margin-right: 40px;"><a href="{% url 'project_list' %}">Projects</a></li>
+        <li style="margin-right: 40px;"><form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit" id="logout-button">Logout</button>
+        </form>
+        </li>
+        {% else %}
+        <li><a href="{% url 'login' %}">Login</a></li>
+        <li><a href="{% url 'signup' %}">Signup</a></li>
+        {% endif %}
+    </ul>
+</nav>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const logoutButton = document.getElementById('logout-button');
+
+    if (logoutButton) {
+        logoutButton.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+
+            const logoutForm = document.createElement('form');
+            logoutForm.action = '{% url 'logout' %}';
+            logoutForm.method = 'POST';
+            document.body.appendChild(logoutForm);
+
+            const csrfInput = document.createElement('input');
+            csrfInput.type = 'hidden';
+            csrfInput.name = 'csrfmiddlewaretoken';
+            csrfInput.value = csrfToken;
+            logoutForm.appendChild(csrfInput);
+
+            logoutForm.submit();
+        });
+    }
+});
+
+
+</script>
+

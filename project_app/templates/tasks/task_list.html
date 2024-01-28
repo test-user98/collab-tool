@@ -1,0 +1,21 @@
+<!-- project_app/templates/task_list.html -->
+<h1>Tasks for {{ project.name }}</h1>
+<ul>
+    {% for task in tasks %}
+        <li>
+            {{ task.name }}
+            <br>
+            Description: {{ task.description }}
+            <br>
+            Status: {{ task.status }}
+            <br>
+            <!-- Add links to update and delete tasks here -->
+            <a href="{% url 'update_task' project_id=project.id task_id=task.id %}">Update</a>
+            <a href="{% url 'delete_task' project_id=project.id task_id=task.id %}">Delete</a>
+        </li>
+    {% empty %}
+        <li>No tasks found.</li>
+    {% endfor %}
+</ul>
+<!-- Add a link to add a new task here -->
+<a href="{% url 'add_task' project_id=project.id %}">Add New Task</a>

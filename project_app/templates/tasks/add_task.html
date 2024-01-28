@@ -1,0 +1,10 @@
+<!-- project_app/templates/add_task.html -->
+<h1>Add Task</h1>
+
+<form method="POST" action="{% url 'add_task' project_id=project.id %}?next={% url 'task_list' project_id=project.id %}">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Add Task</button>
+</form>
+
+<a href="{% url 'task_list' project_id=project.id %}">Back to Task List</a>

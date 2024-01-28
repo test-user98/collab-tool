@@ -1,0 +1,7 @@
+<!-- project_app/templates/create_project.html -->
+<h1>Create a New Project</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Create Project</button>
+</form>
