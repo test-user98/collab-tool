@@ -30,6 +30,9 @@ def login_view(request):
         form = AuthenticationForm()
     return render(request, 'registration/login.html', {'form': form})
 
+def homepage(request):
+    return render(request, 'homepage.html')
+
 @login_required
 def profile(request):
     return render(request, 'profile.html')

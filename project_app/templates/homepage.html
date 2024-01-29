@@ -1,0 +1,19 @@
+<!-- project_app/templates/home.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Collaborative Project Management Tool</title>
+    <!-- Add any necessary CSS styles here -->
+</head>
+<body>
+    <div style="text-align: center; margin-top: 200px;">
+        <h1>Welcome to Project Collab Tool</h1>
+        <p>Your collaborative project management solution</p>
+        </br>
+        <button onclick="window.location.href='{% url 'signup' %}'">Sign Up</button>
+        <button onclick="window.location.href='{% url 'login' %}'">Login</button>
+    </div>
+</body>
+</html>
